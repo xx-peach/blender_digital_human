@@ -20,6 +20,8 @@ def angle_between(v1, v2):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='parser for camera pose generation')
+    parser.add_argument('--n_views', type=int, default=10)
+    parser.add_argument('--is_test', type=bool, default=False)
     parser.add_argument('--out_folder', type=str, required=True, default='')
     args = parser.parse_args()
 
@@ -27,7 +29,7 @@ if __name__ == '__main__':
     object_x, object_y, object_z = 2.0864, 0.55584, 1.0
     radius = 2.05
 
-    n_samples = 10
+    n_samples = args.n_views
     angles = np.linspace(0, 2*np.pi, n_samples+1)
 
     lines = []
@@ -46,5 +48,5 @@ if __name__ == '__main__':
 
         lines.append("{} {} {} {} {} {}\n".format(camera_x, camera_y, camera_z, euler_x, euler_y, euler_z))
 
-    with open(os.path.join(args.out_folder, 'camera_positions'), 'w') as f:
+    with open(os.path.join(args.out_folder, 'camera_positions' if not args.is_test else 'camera_positions_test'), 'w') as f:
         f.writelines(lines)

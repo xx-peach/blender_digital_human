@@ -4,13 +4,15 @@ channels:
     - nvidia
     - conda-forge
     - defaults
+    - pkgs/main
 
 dependencies:
-    - python>=3.10
+    - python==3.9
       # pytorch3d does not support pytorch 1.13 yet
       # so we install 1.12.1 for now
-    - pytorch>=1.13
-    - pytorch-cuda>=11.6
+    - pytorch==1.12.1
+    - cudatoolkit==10.2
+    # - pytorch-cuda>=11.6
     - torchvision
     - torchaudio
 
