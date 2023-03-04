@@ -1,226 +1,93 @@
-absl-py==1.4.0
-addict==2.4.0
-antlr4-python3-runtime==4.9.3
-anyio==3.6.2
-argon2-cffi==21.3.0
-argon2-cffi-bindings==21.2.0
-arrow==1.2.3
-asttokens==2.2.1
-attrs==22.2.0
-autopep8==2.0.1
-backcall==0.2.0
-beautifulsoup4==4.11.2
-black==23.1.0
-bleach==6.0.0
-blessed==1.20.0
-brotlipy @ file:///home/conda/feedstock_root/build_artifacts/brotlipy_1666764671472/work
-bvh-distance-queries @ git+https://github.com/YuliangXiu/bvh-distance-queries@c7e2151eb054a1b84f41d2b74d6f77d1ff3eac80
-bvh-ray-tracing @ git+https://github.com/dendenxu/bvh-ray-tracing@9a5662da11febb44c08dca09866240a147ec400a
-cachetools==5.3.0
-ccimport==0.4.2
-certifi==2022.12.7
-cffi @ file:///home/conda/feedstock_root/build_artifacts/cffi_1671179353105/work
-charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1661170624537/work
-cholespy==0.1.6
-chumpy==0.70
-click==8.1.3
-cloudpickle==2.2.1
-comm==0.1.2
-commentjson==0.9.0
-ConfigArgParse==1.5.3
-contourpy==1.0.7
-cryptography @ file:///home/conda/feedstock_root/build_artifacts/cryptography-split_1675828607645/work
-cumm-cu116==0.4.7
-cycler==0.11.0
-dash==2.8.1
-dash-core-components==2.0.0
-dash-html-components==2.0.0
-dash-table==5.0.0
-debugpy==1.6.6
-decorator==5.1.1
-defusedxml==0.7.1
-detectron2 @ git+https://github.com/facebookresearch/detectron2@38af375052d3ae7331141bc1a22cfa2713b02987
-docopt==0.6.2
-dotmap==1.3.30
-# Editable Git install with no remote (easymocap==0.2)
--e /home/xuzhen/code/easymocap-public
-et-xmlfile==1.1.0
-executing==1.2.0
-fastjsonschema==2.16.3
-fire==0.5.0
-Flask==2.2.3
-flatbuffers==23.1.21
-fonttools==4.38.0
-fqdn==1.5.1
-func-timeout==4.3.5
-functorch==1.13.1
-fvcore==0.1.5.post20221221
-google-auth==2.16.1
-google-auth-oauthlib==0.4.6
-gpustat @ git+https://github.com/wookayin/gpustat@74e0b5eafe95bf99c945669e550b0ccd6be1bdc3
-grpcio==1.51.3
-h5py==3.8.0
-human-body-prior @ git+https://github.com/nghorbani/human_body_prior@4c246d8a83ce16d3cff9c79dcf04d81fa440a6bc
-hydra-core==1.3.2
-idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1663625384323/work
-imageio==2.25.1
-iopath==0.1.9
-ipdb==0.13.11
-ipykernel==6.21.2
-ipython==8.10.0
-ipython-genutils==0.2.0
-ipywidgets==8.0.4
-isoduration==20.11.0
-itsdangerous==2.1.2
-jedi==0.18.2
-Jinja2==3.1.2
-joblib==1.2.0
-jsonpointer==2.3
-jsonschema==4.17.3
-jupyter==1.0.0
-jupyter-console==6.6.1
-jupyter-events==0.6.3
-jupyter_client==8.0.3
-jupyter_core==5.2.0
-jupyter_server==2.3.0
-jupyter_server_terminals==0.4.4
-jupyterlab-pygments==0.2.2
-jupyterlab-widgets==3.0.5
-kiwisolver==1.4.4
-kornia==0.6.10
-largesteps @ git+https://github.com/dendenxu/large-steps-pytorch@9a2421b3de15c5211a7a0b0d836f728d08568196
-lark==1.1.5
-lark-parser==0.7.8
-lpips==0.1.4
-Markdown==3.4.1
-markdown-it-py==2.2.0
-MarkupSafe==2.1.2
-matplotlib==3.7.0
-matplotlib-inline==0.1.6
-mdurl==0.1.2
-mediapipe==0.9.1.0
-mistune==2.0.5
-mpmath==1.2.1
-msgpack==1.0.4
-mypy-extensions==1.0.0
-nbclassic==0.5.2
-nbclient==0.7.2
-nbconvert==7.2.9
-nbformat==5.5.0
-nest-asyncio==1.5.6
-networkx==3.0
-ninja==1.11.1
-notebook==6.5.2
-notebook_shim==0.2.2
-numpy==1.23.0
-nvdiffrast @ git+https://github.com/NVlabs/nvdiffrast@fad71a4ad3dc8530a4eeaeb55a65b2e8c127d69d
-nvidia-ml-py==11.525.84
-nvitop==1.0.0
-oauthlib==3.2.2
-omegaconf==2.3.0
-open3d==0.16.0
-opencv-contrib-python==4.7.0.72
-opencv-python==4.7.0.72
-openpyxl==3.1.1
-packaging==23.0
-pandas==1.5.3
-pandocfilters==1.5.0
-parso==0.8.3
-pathspec==0.11.0
-pccm==0.4.6
-pexpect==4.8.0
-pickleshare==0.7.5
-Pillow @ file:///home/conda/feedstock_root/build_artifacts/pillow_1675487172403/work
-pipreqs==0.4.11
-platformdirs==3.0.0
-plotly==5.13.1
-portalocker==2.7.0
-prometheus-client==0.16.0
-prompt-toolkit==3.0.37
-protobuf==3.20.3
-psutil==5.9.4
-ptyprocess==0.7.0
-pure-eval==0.2.2
-pyasn1==0.4.8
-pyasn1-modules==0.2.8
-pybind11==2.10.3
-pycocotools==2.0.6
-pycodestyle==2.10.0
-pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
-Pygments==2.14.0
-PyMCubes==0.1.4
-pyntcloud==0.3.1
-PyOpenGL @ git+https://github.com/mmatl/pyopengl@76d1261adee2d3fd99b418e75b0416bb7d2865e6
-pyOpenSSL @ file:///home/conda/feedstock_root/build_artifacts/pyopenssl_1672659226110/work
-pyparsing==3.0.9
-pyquaternion==0.9.9
-pyrsistent==0.19.3
-PySocks @ file:///home/conda/feedstock_root/build_artifacts/pysocks_1661604839144/work
-python-dateutil==2.8.2
-python-json-logger==2.0.7
-pytorch3d @ git+https://github.com/facebookresearch/pytorch3d@33b49cebf027148a637ff0fc8c2c9b5f2ddf8c47
-pytz==2022.7.1
-PyWavelets==1.4.1
-PyYAML==6.0
-pyzmq==25.0.0
-qtconsole==5.4.0
-QtPy==2.3.0
-requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1673863902341/work
-requests-oauthlib==1.3.1
-rfc3339-validator==0.1.4
-rfc3986-validator==0.1.1
-rich==13.3.1
-rsa==4.9
-ruamel.yaml==0.17.21
-ruamel.yaml.clib==0.2.7
-scikit-image==0.19.3
-scikit-learn==1.2.1
-scipy==1.10.1
-Send2Trash==1.8.0
-six==1.16.0
-smplx==0.1.28
-sniffio==1.3.0
-soupsieve==2.4
-spconv-cu116==2.3.3
-stack-data==0.6.2
-svox==0.2.32
-sympy==1.11.1
-tabulate==0.9.0
-tenacity==8.2.1
-tensorboard==2.12.0
-tensorboard-data-server==0.7.0
-tensorboard-plugin-wit==1.8.1
-tensorboardX==2.6
-termcolor==2.2.0
-terminado==0.17.1
-threadpoolctl==3.1.0
-tifffile==2023.2.3
-tinycss2==1.2.1
-tomli==2.0.1
-torch==1.13.1
-torch-geometric==2.2.0
-torch-scatter==2.1.0
-torch-sparse==0.6.16
-torch-tb-profiler==0.4.1
-torchaudio==0.13.1
-torchdiffeq==0.2.3
-torchmcubes @ git+https://github.com/tatsy/torchmcubes@3aef8afa5f21b113afc4f4ea148baee850cbd472
-torchvision==0.14.1
-tornado==6.2
-tqdm==4.64.1
-traitlets==5.9.0
-trimesh==3.20.1
-typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1665144421445/work
-ujson==5.7.0
-uri-template==1.2.0
-urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1673452138552/work
-wcwidth==0.2.6
-webcolors==1.12
-webencodings==0.5.1
-websocket-client==1.5.1
-Werkzeug==2.2.3
-widgetsnbextension==4.0.5
-xatlas==0.0.7
-yacs==0.1.8
-yapf==0.32.0
-yarg==0.1.9
+# please install pip requirements using: 
+# cat requirements.txt | sed -e '/^\s*#.*$/d' -e '/^\s*$/d' | xargs -n 1 pip install
+# otherwise one single compilation error could eat away like 20 minutes for nothing.
+
+# other requirements
+# for terminal image visualization
+timg
+yacs
+yapf
+tqdm
+rich
+sympy
+pillow
+addict
+trimesh
+imageio
+termcolor
+tensorboard
+scikit-image
+scikit-learn
+torch-tb-profiler
+
+# other requirements not available in conda
+smplx
+pymcubes
+torchdiffeq
+opencv-python
+
+# dev requirements
+h5py
+
+# for plenoctree conversion
+svox
+ipdb
+ninja
+lpips
+ujson
+pandas
+
+# for unwrapping to get StVK properly
+xatlas
+kornia
+msgpack
+jupyter
+openpyxl
+autopep8
+pyntcloud
+matplotlib
+ruamel.yaml
+commentjson
+
+
+# to support visualization, we need:
+git+https://github.com/wookayin/gpustat
+# for winding_number_remesh
+git+https://github.com/NVlabs/nvdiffrast
+git+https://github.com/tatsy/torchmcubes
+# git+https://github.com/dendenxu/cholespy
+# installing from conda leads to just numerous problems...
+git+https://github.com/facebookresearch/pytorch3d
+git+https://github.com/facebookresearch/detectron2
+git+https://github.com/dendenxu/large-steps-pytorch
+git+https://github.com/dendenxu/bvh-ray-tracing
+git+https://github.com/YuliangXiu/bvh-distance-queries
+
+# external dependency: easymocap-public (this repo is not publicly available yet)
+# for easymocap's vposer: human_pose_prior, this looks like my DotDict implementation... just way more complex
+dotmap
+# for easymocap loading of SMPL (maybe all pickle loading of SMPL?)
+chumpy
+mediapipe
+func_timeout
+pycocotools
+spconv-cu116
+tensorboardX
+git+https://github.com/mmatl/pyopengl
+git+https://github.com/nghorbani/human_body_prior
+
+# ! prone to change pytorch version, please install these on demand and manually
+functorch
+torch-scatter
+torch-sparse
+torch-geometric
+
+# https://storage.googleapis.com/open3d-releases-master/python-wheels/open3d-0.16.0-cp310-cp310-manylinux_2_27_x86_64.whl # TODO: fix the quirky install
+# http://www.open3d.org/docs/release/getting_started.html (install the development version from here if the previsou link is expired and python is too new)
+# python3.10 support for open3d finally here
+# if failed to install open3d (even when installing from latest release?), try to skip it using
+# pip install $(grep -v '^ *#\|^open3d' requirements.txt | grep .)
+# open3d
+
+# pip install $(grep -v '^ *#\|^.*open3d\|^torch-sparse\|^torch-geometric\|^.*cholespy\|^.*pytorch3d\|^.*pyopengl' requirements.txt | grep .)
+# cat requirements.txt | sed -e '/^\s*#.*$/d' -e '/^\s*$/d' | xargs -n 1 pip install
