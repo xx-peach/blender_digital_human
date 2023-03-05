@@ -1,5 +1,9 @@
 # blender_digital_human
 
+here is a demo of blendering digital human `nathan` into a `3d-front` environment, it shows 120 novel view results of frame 11 (the flicker around 1 second is because the corresponding novel camera position collides with walls, I may need to adjust the camera surrounding radius and generate new camera poses):
+
+![img](./demo/blender.mp4)
+
 ## Installtion
 
 ```shell
