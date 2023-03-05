@@ -13,6 +13,7 @@ if __name__ == "__main__":
     parser.add_argument('--camera_intri_path', type=str, default='', help='path to the camera intrinsic configuration.')
     parser.add_argument('--camera_extri_path', type=str, default='', help='path to the camera extrinsic configuration.')
     parser.add_argument('--output_path', type=str, default='', help='path to the output folder.')
+    parser.add_argument('--is_test', type=bool, default=False)
     args = parser.parse_args()
 
     
@@ -36,6 +37,7 @@ if __name__ == "__main__":
 
 
     cameras = {}
+    opencv_world2cameras = []
     for view in range(len(opengl_camera2worlds)):
         # transform from OpenGL coordinate to OpenCV coordinate
         opencv_camera2world = bproc.math.change_source_coordinate_frame_of_transformation_matrix(opengl_camera2worlds[view], ["X", "-Y", "-Z"])
@@ -47,8 +49,12 @@ if __name__ == "__main__":
             'R': opencv_world2camera[:3, :3],
             'T': opencv_world2camera[:3, 3]
         }
+        opencv_world2cameras.append(opencv_world2camera)
 
 
     # write the processed camera parameters
     print(cameras)
-    write_camera(cameras, args.output_path)
+    if not args.is_test:
+        write_camera(cameras, args.output_path)
+    else:
+        np.save(os.path.join(args.output_path, 'render_w2cs.npy'), opencv_world2cameras)

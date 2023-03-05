@@ -57,7 +57,7 @@ git+https://github.com/NVlabs/nvdiffrast
 git+https://github.com/tatsy/torchmcubes
 # git+https://github.com/dendenxu/cholespy
 # installing from conda leads to just numerous problems...
-git+https://github.com/facebookresearch/pytorch3d
+# git+https://github.com/facebookresearch/pytorch3d
 git+https://github.com/facebookresearch/detectron2
 git+https://github.com/dendenxu/large-steps-pytorch
 git+https://github.com/dendenxu/bvh-ray-tracing
@@ -71,16 +71,16 @@ chumpy
 mediapipe
 func_timeout
 pycocotools
-spconv-cu116
+spconv-cu111
 tensorboardX
 git+https://github.com/mmatl/pyopengl
 git+https://github.com/nghorbani/human_body_prior
 
 # ! prone to change pytorch version, please install these on demand and manually
-functorch
-torch-scatter
-torch-sparse
-torch-geometric
+# functorch
+# torch-scatter
+# torch-sparse
+# torch-geometric
 
 # https://storage.googleapis.com/open3d-releases-master/python-wheels/open3d-0.16.0-cp310-cp310-manylinux_2_27_x86_64.whl # TODO: fix the quirky install
 # http://www.open3d.org/docs/release/getting_started.html (install the development version from here if the previsou link is expired and python is too new)
