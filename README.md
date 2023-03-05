@@ -26,3 +26,43 @@ pip3 install blenderproc
 # install other useful tools
 pip3 install nvitop
 ```
+
+## Usage
+
+1. use blender to choose a suitable (has enough space to place the human and a set of cameras, I chose `ffe76c93` in this demo) 3d-front layout, and manually place the human in a suitable position and record the `[x, y, z]` coordinate in blender:
+
+   ```shell
+   # use the `debug` mode provided by `blenderproc v2`, which will open blender gui
+   blenderproc debug human_env_blend_visualizer.py \
+       --front {PATH_TO_3D-Front-Json-File} \
+       --future_folder {PATH_TO_3D-Future} \
+       --front_3D_texture_path {PATH_TO_3D-Front-texture} \
+       --digital_human_path {PATH_TO_Digital_Human_OBJ-File} \
+       --digital_human_config {PATH_TO_Digital_Human_Config} \
+       --camera_param_path {PATH_TO_Camera_Params} \
+       --camera_poses_path {PATH_TO_Camera_Poses} \
+       --output_dir {Output_PATH}/hdf5
+   ```
+   the eight arguments afterwards are used by  `human_env_blend_visualizer.py` file:
+
+   + `front`: path to the specific 3D-Front json file which you choose;
+   + `future_folder`: path to the folder where all 3D-Future objects are stored;
+   + `front_3D_texture_path`: path to the folder where all 3D-Front textures are stored;
+   + `digital_human_path`: path to a specific frame `.obj` file of a digital human;
+   + `digital_human_config`: path to the config of the digital human, which includes its object name and `x`, `y` position, you can **randomly choose one for the `debug` mode** since it's decided after the first process;
+   + `camera_param_path`: path to the camera parameter file, which includes camera reoslution and intrinsic, you can generate it using the second block in `process.ipynb`;
+   + `camera_poses_path`: path to the camera poses file, your can **randomly choose one for the `debug` mode** since it's decided after the first process;
+   + `output_dir`: path to the output directory which contains the `.hdf5` format outputs;
+2. generate the digital human config and camera poses after you record the human position and surrounding camera radius
+
+   ```shell
+   # use the **third** block of `process.ipynb` to generate the digital human config
+
+   # use the `scripts/generate_camera_pose.py` to generate the camera poses
+   python ./scripts/generate_camera_pose.py \
+       --is_test False \
+       --n_views 10 \
+       --out_folder ./configs
+   ```
+   the setting I used in this demo is `--n_views 10` for training, and `--n_views 120` for testing, you can see the outputs in `./configs/` folder;
+3.
