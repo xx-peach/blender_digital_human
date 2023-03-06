@@ -17,8 +17,8 @@ if __name__ == "__main__":
     # read in the background images rendered by blender
     backgrounds = []
     interval = len(os.listdir(args.blender_rendered_env_path)) // args.n_frames
-    for i in range(0, args.n_views, interval):
-        view_idx = args.render_view if args.render_view != -1 else i
+    for i in range(0, len(os.listdir(args.blender_rendered_env_path)), interval):
+        view_idx = args.render_view * interval if args.render_view != -1 else i
         background = np.array(Image.open(os.path.join(args.blender_rendered_env_path, f'{view_idx}.jpg')))
         backgrounds.append(background)
 
@@ -33,11 +33,13 @@ if __name__ == "__main__":
         masks.append(mask)
 
     # define and create the output folder
-    if args.render_view != -1:
+    if args.render_view == -1:
         output_path = os.path.join(args.output_folder, f'pose_sequence/circle')
     else:
         output_path = os.path.join(args.output_folder, f'pose_sequence/fixed_view_{args.render_view:02d}')
-    os.system(f'rm -rf {output_path}/images')
+    
+    if os.path.exists(output_path):
+        os.system(f'rm -rf {output_path}/images')
     os.makedirs(f'{output_path}/images', exist_ok=True)
 
     # generate the output images
