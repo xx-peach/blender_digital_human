@@ -18,29 +18,29 @@ if __name__ == "__main__":
 
     # read in the background images rendered by blender
     backgrounds = []
-    for i in range(args.n_views):
+    for i in range(0, args.n_views, interval):
         background = np.array(Image.open(os.path.join(args.blender_rendered_env_path, f'{i}.jpg')))
         backgrounds.append(background)
 
     # read in the foreground human images rendered by neuralbody,
     # and generate the human mask at the same time
     foregrounds, masks = [], []
-    for i in range(args.n_views):
-        frame_idx = i // interval
-        foreground = np.array(Image.open(os.path.join(args.nb_rendered_human_path, f'rendering', f'{frame_idx:03d}_{i:03d}.png')).convert('RGB'))
+    for i in range(args.n_frames):
+        foreground = np.array(Image.open(os.path.join(args.nb_rendered_human_path, f'rendering', f'{i+1:03d}_{i*4:03d}.png')).convert('RGB'))
         mask = foreground.sum(axis=-1) > 5
         foregrounds.append(foreground)
         masks.append(mask)
 
     # generate the output images
     output_path = os.path.join(args.output_folder, f'pose_sequence')
+    os.system(f'rm -rf {output_path}/images')
     os.makedirs(f'{output_path}/images', exist_ok=True)
     for i in tqdm.tqdm(range(len(backgrounds))):
         result = (masks[i][..., None] * foregrounds[i] + (1-masks[i])[..., None] * backgrounds[i]).astype(np.uint8)
         imageio.imwrite(os.path.join(output_path, f'images/{i:03d}.jpg'), result)
 
     # generate the output video
-    fps = 30
+    fps = 10
     result_str = f'"{output_path}/images/*.jpg"'
     cmd = [
         '/usr/bin/ffmpeg',
