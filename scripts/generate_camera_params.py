@@ -57,4 +57,4 @@ if __name__ == "__main__":
     if not args.is_test:
         write_camera(cameras, args.output_path)
     else:
-        np.save(os.path.join(args.output_path, 'render_w2cs.npy'), opencv_world2cameras)
+        np.save(os.path.join(args.output_path, 'render_w2cs_{:03d}.npy'.format(len(opencv_world2cameras))), opencv_world2cameras)

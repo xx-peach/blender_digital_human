@@ -48,5 +48,5 @@ if __name__ == '__main__':
 
         lines.append("{} {} {} {} {} {}\n".format(camera_x, camera_y, camera_z, euler_x, euler_y, euler_z))
 
-    with open(os.path.join(args.out_folder, 'camera_positions' if not args.is_test else 'camera_positions_test'), 'w') as f:
+    with open(os.path.join(args.out_folder, 'camera_positions' if not args.is_test else 'camera_positions_test_{:03d}'.format(args.n_views)), 'w') as f:
         f.writelines(lines)
