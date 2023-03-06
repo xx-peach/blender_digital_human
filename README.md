@@ -1,8 +1,12 @@
 # blender_digital_human
 
-here is a demo of blendering digital human `nathan` into a `3d-front` environment, it shows 120 novel view results of frame 11 (the flicker around 1 second is because the corresponding novel camera position collides with walls, I may need to adjust the camera surrounding radius and generate new camera poses):
+here is a demo of blendering digital human `nathan` into a `3d-front` environment, it shows 120 novel view results of frame 11 (the flicker around 1 second is because the corresponding novel camera position collides with walls, I may need to adjust the camera surrounding radius and generate new camera poses), left is the ground truth result rendered by `blender`:
 
-![img](https://github.com/xx-peach/blender_digital_human/blob/main/demo/blender.gif)
+<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/ground_truth_frame_11.gif" alt="ground_truth" style=""><img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/novel_views_frame_11.gif" alt="ground_truth" style="">
+
+and this is the pose sequence result where camera and human both moves:
+
+<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/pose_sequence.gif" alt="ground_truth" style="">
 
 ## Installtion
 
