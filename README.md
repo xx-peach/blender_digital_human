@@ -2,7 +2,7 @@
 
 here is a demo of blendering digital human `nathan` into a `3d-front` environment, it shows 120 novel view results of frame 11 (the flicker around 1 second is because the corresponding novel camera position collides with walls, I may need to adjust the camera surrounding radius and generate new camera poses), left is the ground truth result rendered by `blender`:
 
-<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/ground_truth_frame_11.gif" alt="ground_truth" style="">	                                		<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/novel_views_frame_11.gif" alt="ground_truth" style="">
+<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/ground_truth_frame_11.gif" alt="ground_truth" style="zoom:120%;">	                                		<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/novel_views_frame_11.gif" alt="predicted" style="zoom:120%;">
 
 and this is the pose sequence result where camera and human both moves:
 
@@ -72,5 +72,12 @@ pip3 install nvitop
        --n_views 10 \
        --out_folder ./configs
    ```
-   the setting I used in this demo is `--n_views 10` for training, and `--n_views 120` for testing, you can see the outputs in `./configs/` folder;
-3.
+   the setting I used in this demo is `--n_views 10` for training, and `--n_views 120` for testing, you can see the outputs in `./configs/` folder, note that all these output configs generated are used for `blenderproc`, we'll generate specific `easymocap` format data later;
+3. use `blenderproc` api to render the re-positioned digital human only (without the 3d-front background), it's the raw image + mask data for `neuralbody`, all the commands are listed in `scripts/render_human_only.sh`:
+
+   ```shell
+   # you can render the digital human simply by
+   ./scripts/render_human_only.sh
+   ```
+   the raw data will be saved at `data/synthetic_human/{human}`.
+4.
