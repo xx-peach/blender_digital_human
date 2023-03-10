@@ -54,6 +54,7 @@ pip3 install nvitop
        --camera_poses_path {PATH_TO_Camera_Poses} \
        --output_dir {Output_PATH}/hdf5
    ```
+
    the eight arguments afterwards are used by  `human_env_blend_visualizer.py` file:
 
    + `front`: path to the specific 3D-Front json file which you choose;
@@ -66,18 +67,18 @@ pip3 install nvitop
    + `output_dir`: path to the output directory which contains the `.hdf5` format outputs;
 
    there will be no output after this step, what you need to do is to determine the human position, camera surrounding radius and possibly camera intrinsics.
-
 2. generate the digital human config and camera poses after you record the human position and camera surrounding radius by:
 
    ```shell
    # use the third block of `process.ipynb` to generate the digital human config
-   
+
    # use the `scripts/generate_camera_pose.py` to generate the camera poses
    python ./scripts/generate_camera_pose.py \
        --is_test False \
        --n_views 10 \
        --out_folder ./configs
    ```
+
    the three arguments afterwards are used by  `generate_camera_pose.py` file:
 
    + `is_test`: `True` if you want to generate poses for testing/rendering, and the output camera poses file will have some postfix like `_test_{n_views}`, `False` if you just want training poses;
@@ -85,7 +86,6 @@ pip3 install nvitop
    + `out_folder`: str type, the root folder of the outputs;
 
    the setting I used in this demo is `--n_views 10` for training, and `--n_views 120` for testing, you can see the outputs in `./configs/` folder, namely `configs/camera_parameters.json` and `configs/camera_positions{...}`. note that all these output configs generated are used for `blenderproc`, we'll generate specific `easymocap` format data later;
-
 3. use `blenderproc` api to render the re-positioned digital human only (without the 3d-front background), it is the raw image + mask data for `neuralbody`, all the commands are listed in `scripts/render_human_only.sh`:
 
    ```shell
@@ -93,8 +93,8 @@ pip3 install nvitop
    # the output will be saved at `./data/synthetic_human/{human}`
    ./scripts/render_human_only.sh
    ```
-   the raw data which includes images and masks will be saved at `./data/synthetic_human/{human}`, I dub it here as `DATA_FOLDER`.
 
+   the raw data which includes images and masks will be saved at `./data/synthetic_human/{human}`, I dub it here as `DATA_FOLDER`.
 4. now since we have the raw training data, we need to convert it to the `neuralbody` format, which includes (1) camera intrinsic and extrinsic annots, (2) `smpl` human body parameters (shapes, poses), you can follow the instructions, first convert the camera parameter format:
 
    ```shell
@@ -141,9 +141,7 @@ pip3 install nvitop
    ```
 
    now, we have `annots.npy` and `motion.npy` under `DATA_FOLDER`.
-
 5. train a `neuralbody` model and render test view results, you can generate the test camera poses using commands list in procedure 2, 4, remember to set `is_test=True`. Since `phdeform` is now private now, I don't provide training/testing commands here.
-
 6. now you have the `neuralbody` rendered human, what you need is `blenderproc` rendered environment, you can get it by:
 
    ```shell
@@ -157,13 +155,12 @@ pip3 install nvitop
        --camera_param_path {PATH_TO_Camera_Params} \
        --camera_poses_path {PATH_TO_Camera_Poses} \
        --output_dir {Output_PATH}/hdf5
-       
+
    # convert the raw `.hdf5` output to `.jpg` images
    python3 ./scripts/hd5tojpg.py \
    		--raw_folder {Output_PATH}/hdf5 \
    		--out_folder {Output_PATH}/images
    ```
-
 7. finally, you can blender the `neuralbody` rendered digital human and `blenderproc` rendered environment together, you can generate the novel view visualization by:
 
    ```shell
@@ -189,3 +186,4 @@ pip3 install nvitop
 
    + `render_view`: render a moving camera if `render_view=-1`, or a specific fixed view if `>0`;
 
+You can find and modify all the instructions list above in `command.ipynb`, enjoy.
