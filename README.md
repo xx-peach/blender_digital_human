@@ -2,9 +2,11 @@
 
 here is a demo of blendering digital human `nathan` into a `3d-front` environment, it shows 120 novel view results of frame 11 (the flicker around 1 second is because the corresponding novel camera position collides with walls, I may need to adjust the camera surrounding radius and generate new camera poses), the left one is the ground truth result rendered by `blender`:
 
-<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/ground_truth_frame_11.gif" alt="ground_truth" style="zoom:120%;"> <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/novel_views_frame_11.gif" alt="predicted" style="zoom:120%;"> <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/pose_sequence_view_05.gif" alt="ground_truth" style=""> <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/pose_sequence_view_10.gif" alt="ground_truth" style="">
+<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/ground_truth_frame_11.gif" alt="ground_truth" style="zoom:125%;"> <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/novel_views_frame_11.gif" alt="predicted" style="zoom:125%;"> 
 
-and I show two fixed view pose sequence results above right, one pose sequence result where camera and human both moves below:
+and I show two fixed view pose sequence results and one pose sequence result where camera and human both moves below:
+
+<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/pose_sequence_view_05.gif" alt="ground_truth" style="zoom:125%;"> <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/pose_sequence_view_10.gif" alt="ground_truth" style="zoom:125%;">
 
 <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/pose_sequence_circle.gif" alt="ground_truth" style="">
 
@@ -71,7 +73,7 @@ pip3 install nvitop
 
    ```shell
    # use the third block of `process.ipynb` to generate the digital human config
-
+   
    # use the `scripts/generate_camera_pose.py` to generate the camera poses
    python ./scripts/generate_camera_pose.py \
        --is_test False \
@@ -155,7 +157,7 @@ pip3 install nvitop
        --camera_param_path {PATH_TO_Camera_Params} \
        --camera_poses_path {PATH_TO_Camera_Poses} \
        --output_dir {Output_PATH}/hdf5
-
+   
    # convert the raw `.hdf5` output to `.jpg` images
    python3 ./scripts/hd5tojpg.py \
    		--raw_folder {Output_PATH}/hdf5 \
