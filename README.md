@@ -2,7 +2,7 @@
 
 here is a demo of blendering digital human `nathan` into a `3d-front` environment, it shows 120 novel view results of frame 11 (the flicker around 1 second is because the corresponding novel camera position collides with walls, I may need to adjust the camera surrounding radius and generate new camera poses), the left one is the ground truth result rendered by `blender`:
 
-<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/ground_truth_frame_11.gif" alt="ground_truth" style="zoom:175%;"> <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/novel_views_frame_11.gif" alt="predicted" style="zoom:175%;"> 
+<img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/ground_truth_frame_11.gif" alt="ground_truth" style="zoom:175%;"> <img src="https://github.com/xx-peach/blender_digital_human/blob/main/demo/novel_views_frame_11.gif" alt="predicted" style="zoom:175%;">
 
 and I show two fixed view pose sequence results and one pose sequence result where camera and human both moves below:
 
@@ -45,8 +45,10 @@ pip3 install nvitop
 1. use blender to (1) choose a suitable (has enough space to place the human and a set of cameras, I chose `ffe76c93` in this demo) 3d-front layout, and (2) manually place the human in a suitable position and record the `[x, y, z]` coordinate in blender, (3) place the camera in a suitable place and change the camera intrinsic parameter if you want, or just use the default value defined in the first block of `process.ipynb`, and compute the `xy` plane distance (radius) between the camera and human which will be used to generate a circle of surrounding camera poses in the following procedures:
 
    ```shell
+   # run the second block of `process.ipynb` to generate the default camera intrinsic
+
    # use the `debug` mode provided by `blenderproc v2`, which will open blender gui
-   blenderproc debug human_env_blend_visualizer.py \
+   blenderproc debug human_env_visualizer.py \
        --front {PATH_TO_3D-Front-Json-File} \
        --future_folder {PATH_TO_3D-Future} \
        --front_3D_texture_path {PATH_TO_3D-Front-texture} \
@@ -73,7 +75,7 @@ pip3 install nvitop
 
    ```shell
    # use the third block of `process.ipynb` to generate the digital human config
-   
+
    # use the `scripts/generate_camera_pose.py` to generate the camera poses
    python ./scripts/generate_camera_pose.py \
        --is_test False \
@@ -157,7 +159,7 @@ pip3 install nvitop
        --camera_param_path {PATH_TO_Camera_Params} \
        --camera_poses_path {PATH_TO_Camera_Poses} \
        --output_dir {Output_PATH}/hdf5
-   
+
    # convert the raw `.hdf5` output to `.jpg` images
    python3 ./scripts/hd5tojpg.py \
    		--raw_folder {Output_PATH}/hdf5 \
